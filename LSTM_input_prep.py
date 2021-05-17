@@ -38,7 +38,6 @@ def prep_tensor_sets(pt_raw_data, seq_len=192, cv_set_no=0):
     X.shape = (batch, 192, 2) for 24h long and 15min interval: Q and WL t-192:t-1
     y.shape = (batch, 1) for water level at t
     """
-    # event_info = fetch_event_info('LSTM_6pt_tests/')     # recorded event info, for cross-validation split
     q_series = []
     wl_set = []
     sl_series = []
@@ -81,3 +80,4 @@ def prep_tensor_sets(pt_raw_data, seq_len=192, cv_set_no=0):
            torch.from_numpy(wl_set).view(-1, 1, 1), \
            torch.from_numpy(model_input_val).view(-1, seq_len, 15), \
            torch.from_numpy(wl_set_val).view(-1, 1, 1)
+
