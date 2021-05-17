@@ -141,4 +141,6 @@ if __name__ == '__main__':
                                                                train_loader, test_loader,
                                                                work_dir, pt_no)
         
-        
+        ## run DL model to get predictions for the validation set
+#         model = load_saved_lstm_model(model_dir, testing_structures, pt_no, seed_no, device)
+#         pred_result = model(q_series_val_full[:, :, :].view(-1, 192, 15).to(device).float())
