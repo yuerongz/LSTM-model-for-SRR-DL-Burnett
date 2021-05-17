@@ -15,8 +15,7 @@ def normalise_by_1in500_peak(q_series):
 
 def split_for_validation(input_series, wl_set, set_no, seq_len=192):
     event_input_length = {'1971': 1719, '2010': 1119, '2013': 759, 'design': 959}
-    event_info = fetch_event_info('/data/gpfs/projects/punim0728/Burnett_Proj/LSTM_data_extraction/event_summary.csv')
-    # event_info = fetch_event_info('Spartan_files/event_summary.csv')
+    event_info = fetch_event_info('directory-to-/event_summary.csv')
     evnet_names = list(event_info.keys())
     targeted_idxs = []
     curr_pt_idx = 0
