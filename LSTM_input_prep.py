@@ -73,8 +73,6 @@ def prep_tensor_sets(pt_raw_data, seq_len=192, cv_set_no=0):
         curr_cf_series = normalise_by_1in500_peak(curr_cf_series)
         model_input[int(cf_no)+2, :, :] = curr_cf_series
     model_input = np.moveaxis(model_input, 0, -1)
-    # print(model_input.shape)  # check model input dimensions
-    # Cross-validation split
     model_input, wl_set, model_input_val, wl_set_val = split_for_validation(model_input, wl_set, cv_set_no)
     return torch.from_numpy(model_input).view(-1, seq_len, 15), \
            torch.from_numpy(wl_set).view(-1, 1, 1), \
