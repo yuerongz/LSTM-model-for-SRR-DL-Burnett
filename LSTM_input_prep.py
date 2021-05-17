@@ -1,4 +1,4 @@
-from RNN_data_extraction_spartan import fetch_event_info
+from data_extraction import fetch_event_info
 import torch
 import numpy as np
 
