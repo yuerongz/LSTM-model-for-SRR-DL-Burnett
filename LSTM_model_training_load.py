@@ -93,6 +93,20 @@ def pytorch_model_training(testing_structures, test_str_no, device, epoch_len,
     return model, losses, val_losses
 
 
+def load_saved_lstm_model(work_dir, testing_structures, pt_no, seed_no, device):
+    model = LSTM_net_q2wl(15, testing_structures[0][0], testing_structures[0][1], 1).to(device)
+    optimizer = optim.Adam(model.parameters(), lr=0.005)
+    checkpoint = torch.load(f"{work_dir}Training/Seed_{seed_no}/grid_{pt_no}_model.pt")
+    model.load_state_dict(checkpoint['model_state_dict'])
+    optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+    epoch = checkpoint['epoch']
+    loss = checkpoint['loss']
+    losses = checkpoint['loss_his']
+    val_losses = checkpoint['val_loss_his']
+    model.eval()
+    return model
+
+
 if __name__ == '__main__':
     data_dir = 'directory-to-raw-data/trial_2/'
     seq_len = 192
