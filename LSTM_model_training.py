@@ -3,8 +3,8 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import random_split, DataLoader, TensorDataset
-from LSTM_input_prep_spartan import prep_tensor_sets
-from RNN_data_extraction_spartan import fetch_raw_data
+from LSTM_input_prep import prep_tensor_sets
+from data_extraction import fetch_raw_data
 import os
 import csv
 
